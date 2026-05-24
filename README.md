@@ -1,66 +1,134 @@
-# ChoreWheel
+# ChoreWheel — The Gamified Chore Rotation Sketchbook
 
-ChoreWheel is a household chore management app built with React, TypeScript, and Vite. It helps families, roommates, and shared households assign chores fairly using a spinning wheel, track progress over time, and reward members through a leaderboard and privilege store.
+**UOE Summer of Code 2026 Submission**
 
-## Key Features
+> Spin fairly. Trade smart. Earn rewards. Keep the household in harmony.
 
-- **Interactive Chore Wheel**: spin to randomly assign chores with weighted fairness based on completed tasks.
-- **Household Room Management**: create, join, switch, and delete rooms for different households.
-- **Member Profiles**: add household members with personalized colors and activity points.
-- **Live Activity Feed**: view real-time notifications for task assignments, completions, trades, and rewards.
-- **Trade & Reward System**: swap chores with housemates and use points to buy privileges.
-- **History & Leaderboard**: review past chores and compare household members by points.
-- **Onboarding & Guidebook**: built-in guidance for first-time users and task management.
+ChoreWheel is a real-time, gamified web application for roommates and households. It replaces arguments over chores with a fair spin wheel, a points economy, peer-to-peer trading, and a reward store — all wrapped in a distinctive sketchbook aesthetic.
+
+---
+
+## Live Demo
+
+**[Demo URL — deploy and update this link](https://your-deployed-url.example.com)**
+
+Default sample room code: `HOMEY9`
+
+---
+
+## Features
+
+- **Spin Wheel** — Fair-weighted random chore assignment with animation and sound
+- **Points & Streaks** — Earn rewards for completing chores; streak multipliers for consistency
+- **Leaderboard** — Transparent household contribution rankings
+- **Chore Trading** — Swap assignments when schedules conflict
+- **Privilege Store** — Redeem points for custom household rewards
+- **Multi-Room** — Create/join rooms with shareable codes
+- **Real-Time Sync** — Optional Firebase Realtime Database integration
+- **PWA** — Installable, works offline via localStorage
+- **Onboarding** — 5-step tutorial for first-time users
+
+---
 
 ## Tech Stack
 
-- React 19
-- TypeScript
-- Vite
-- Firebase (for optional sync)
-- lucide-react icons
-- canvas-confetti animations
+| Layer | Technology |
+|-------|------------|
+| Frontend | React 19, TypeScript, Vite 8 |
+| Styling | Custom CSS (sketchbook design system) |
+| Icons | Lucide React |
+| Sync | Firebase Realtime Database (optional) |
+| Storage | localStorage (offline-first) |
+| PWA | Service Worker + Web Manifest |
+| Effects | Canvas API, Web Audio API, canvas-confetti |
 
-## Getting Started
+---
 
-### Install dependencies
+## Quick Start
 
 ```bash
+git clone https://github.com/Annguyen0410/UOE-Summer-of-Code---ChoreWheel.git
+cd UOE-Summer-of-Code---ChoreWheel
 npm install
-```
-
-### Run locally
-
-```bash
 npm run dev
 ```
 
-Open the app at the local Vite URL shown in the terminal.
+Open [http://localhost:5173](http://localhost:5173).
 
-### Build for production
+### Production Build
 
 ```bash
 npm run build
-```
-
-### Preview the production build
-
-```bash
 npm run preview
 ```
 
+---
+
+## Firebase Setup (Optional)
+
+1. Create a Firebase project with Realtime Database enabled.
+2. Open the app ? **Dev Settings** (gear icon).
+3. Paste your Firebase config JSON.
+4. All room data syncs across devices in real time.
+
+Without Firebase, the app works fully offline using browser localStorage.
+
+---
+
 ## Project Structure
 
-- `src/App.tsx` — main application shell and layout
-- `src/components/ChoreWheel.tsx` — interactive spinning wheel assignment
-- `src/components/ChoreList.tsx` — chore list and task controls
-- `src/context/RoomContext.tsx` — shared room and member state
-- `src/services/firebase.ts` — optional Firebase integration
+```
+src/
+??? components/
+?   ??? ChoreWheel.tsx       # Canvas spin wheel
+?   ??? ChoreList.tsx        # Chore CRUD & completion
+?   ??? TradeModal.tsx       # Peer chore swapping
+?   ??? PrivilegeStore.tsx   # Reward economy
+?   ??? Leaderboard.tsx      # Rankings
+?   ??? HistoryLogPanel.tsx  # Completion ledger
+?   ??? ...
+??? context/
+?   ??? RoomContext.tsx      # Core state management
+??? services/
+?   ??? firebase.ts          # Cloud sync layer
+??? App.tsx                  # Application shell
+```
 
-## Notes
+---
 
-This repository is part of the UOE Summer of Code ChoreWheel project. The current implementation includes offline room/team management and a rich interactive UI.
+## Documentation
+
+| Document | Description |
+|----------|-------------|
+| [SUBMISSION.md](SUBMISSION.md) | Full UOE Summer of Code 2026 submission |
+| [docs/PRESENTATION.md](docs/PRESENTATION.md) | Presentation slide outline |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | System architecture diagrams |
+| [docs/API.md](docs/API.md) | Data schema and API reference |
+| [docs/ROADMAP.md](docs/ROADMAP.md) | Scalability and future roadmap |
+| [docs/IMPACT.md](docs/IMPACT.md) | Business and social impact analysis |
+
+---
+
+## Hackathon Theme
+
+**Startup & Productivity Solutions** — ChoreWheel improves household workflows, collaboration, and operations through gamification and fair assignment mechanics.
+
+---
+
+## Team
+
+| Name | Role |
+|------|------|
+| [Your Name] | Project Lead / Developer |
+
+GitHub: [@Annguyen0410](https://github.com/Annguyen0410)
+
+---
 
 ## License
 
-This project does not include a license file. Add one if you want to share the app publicly.
+[Specify license]
+
+---
+
+**UOE Summer of Code 2026** — *Innovate. Build. Collaborate.*
