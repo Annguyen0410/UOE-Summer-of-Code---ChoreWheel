@@ -670,7 +670,8 @@ input:checked + .slider:before {
   justify-content: center;
   align-items: stretch;
   margin: 0 auto clamp(1rem, 2.5vw, 1.5rem);
-  width: 100%;
+  width: fit-content;
+  max-width: 100%;
 }
 
 .stats-scrap-note {

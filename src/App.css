@@ -4,6 +4,12 @@
   --app-gutter: clamp(0.75rem, 2.5vw, 2rem);
   --column-gap: clamp(1rem, 2vw, 1.75rem);
   --section-gap: clamp(1rem, 2vw, 1.5rem);
+  --col-primary-min: clamp(220px, 22vw, 280px);
+  --col-primary-max: clamp(300px, 28vw, 400px);
+  --col-center-min: clamp(240px, 24vw, 300px);
+  --col-center-max: clamp(320px, 32vw, 460px);
+  --col-side-min: clamp(220px, 22vw, 280px);
+  --col-side-max: clamp(300px, 28vw, 400px);
 }
 
 .app-page {
@@ -27,6 +33,17 @@
   width: 100%;
   padding-top: clamp(0.75rem, 2vw, 1.25rem);
   padding-bottom: clamp(1rem, 2.5vw, 2rem);
+}
+
+/* Centers dashboard + stats as one block on the viewport axis */
+.app-content-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--app-gutter);
+  box-sizing: border-box;
 }
 
 .app-header {
@@ -185,13 +202,19 @@
   box-shadow: 2px 2px 0px #2d3748;
 }
 
-/* Dashboard spiral page layout */
+/* Dashboard spiral page layout — fit-content block, absolutely centered */
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns:
+    minmax(var(--col-primary-min), var(--col-primary-max))
+    minmax(var(--col-center-min), var(--col-center-max))
+    minmax(var(--col-side-min), var(--col-side-max));
   gap: var(--column-gap);
-  width: 100%;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
   align-items: start;
+  justify-content: center;
 }
 
 .dashboard-column {
@@ -207,23 +230,48 @@
   min-width: 0;
 }
 
+.dashboard-column--primary {
+  width: clamp(var(--col-primary-min), 28vw, var(--col-primary-max));
+}
+
+.dashboard-column--center {
+  width: clamp(var(--col-center-min), 32vw, var(--col-center-max));
+}
+
+.dashboard-column--side {
+  width: clamp(var(--col-side-min), 28vw, var(--col-side-max));
+}
+
 @media (max-width: 1150px) {
   .dashboard-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns:
+      minmax(var(--col-primary-min), var(--col-primary-max))
+      minmax(var(--col-center-min), var(--col-center-max));
   }
 
   .dashboard-column--side {
     grid-column: 1 / -1;
+    width: min(100%, calc(var(--col-primary-max) + var(--col-center-max) + var(--column-gap)));
+    justify-self: center;
   }
 }
 
 @media (max-width: 768px) {
   .dashboard-grid {
     grid-template-columns: minmax(0, 1fr);
+    width: min(100%, 36rem);
+  }
+
+  .dashboard-column,
+  .dashboard-column--primary,
+  .dashboard-column--center,
+  .dashboard-column--side {
+    width: 100%;
   }
 
   .dashboard-column--side {
     grid-column: auto;
+    justify-self: stretch;
   }
 
   .app-header-end {

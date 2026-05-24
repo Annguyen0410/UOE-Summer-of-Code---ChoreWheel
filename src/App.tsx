@@ -537,7 +537,7 @@ const Dashboard: React.FC = () => {
       <div className="spiral-coil-divider"></div>
 
       <div className="app-main">
-        <div className="app-shell">
+        <div className="app-content-stage">
           {/* Taped Stats Scrap Banner Row */}
           {currentRoom && (
             <div className="stats-banner-row">
