@@ -185,7 +185,7 @@ export const ChoreList: React.FC<ChoreListProps> = ({ onSelectChore, selectedCho
       )}
 
       {/* Filter Tabs - sketchbook pills */}
-      <div className="chore-filters-row flex items-center gap-1.5 pb-2 border-b border-slate-350 mb-3 overflow-x-auto">
+      <div className="chore-filters-row flex flex-wrap items-center gap-1.5 pb-2 border-b border-slate-350 mb-3">
         <Filter size={11} className="text-slate-500 shrink-0 ml-1" />
         <button
           onClick={() => setFilter('All')}
@@ -234,7 +234,7 @@ export const ChoreList: React.FC<ChoreListProps> = ({ onSelectChore, selectedCho
                   }}
                 >
                   <div className="chore-card-left flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-1.5">
+                    <div className="chore-card-meta flex flex-wrap items-center gap-1.5 mb-1.5">
                       <span className="chore-card-category" style={{
                         background: 
                           chore.category === 'Kitchen' ? 'var(--hl-green)' :
@@ -261,7 +261,7 @@ export const ChoreList: React.FC<ChoreListProps> = ({ onSelectChore, selectedCho
 
                     <h4 className="chore-card-name font-header text-[13px] text-slate-800">{chore.name}</h4>
                     {chore.description && (
-                      <p className="chore-card-desc text-[10px] text-slate-500 mt-0.5 line-clamp-1">{chore.description}</p>
+                      <p className="chore-card-desc text-[10px] text-slate-500 mt-0.5 line-clamp-2">{chore.description}</p>
                     )}
 
                     <div className="flex items-center gap-2 mt-1.5">

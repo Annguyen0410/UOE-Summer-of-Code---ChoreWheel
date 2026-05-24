@@ -419,6 +419,17 @@ input:checked + .slider:before {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-height: 1.45;
+  word-break: break-word;
 }
 
 .mx-auto { margin-left: auto; margin-right: auto; }

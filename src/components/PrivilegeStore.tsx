@@ -196,26 +196,26 @@ export const PrivilegeStore: React.FC = () => {
             const canAfford = activeMember ? activeMember.points >= item.cost : false;
             
             return (
-              <div key={item.name} className="coupon-stub flex justify-between items-center transition-transform hover:translate-x-1">
-                <div className="flex gap-3 items-center flex-1 pl-4">
-                  <div className="store-item-icon p-1.5 rounded" style={{ background: item.color + '12', color: item.color, border: `1.5px solid ${item.color}` }}>
+              <div key={item.name} className="coupon-stub flex justify-between items-start gap-2">
+                <div className="coupon-stub-body flex gap-2.5 items-start flex-1 min-w-0 pl-3">
+                  <div className="store-item-icon p-1.5 rounded shrink-0" style={{ background: item.color + '12', color: item.color, border: `1.5px solid ${item.color}` }}>
                     {item.icon}
                   </div>
-                  <div className="min-w-0 pr-2">
-                    <h4 className="text-xs font-bold font-header text-slate-800 flex items-center gap-1.5 flex-wrap">
+                  <div className="coupon-stub-text min-w-0 flex-1">
+                    <h4 className="coupon-stub-title text-xs font-bold font-header text-slate-800 flex flex-wrap items-center gap-1.5">
                       {item.name}
-                      <span className="text-[9px] font-bold bg-amber-50 text-amber-900 border border-amber-300 px-1 rounded font-header">
+                      <span className="coupon-stub-cost text-[9px] font-bold bg-amber-50 text-amber-900 border border-amber-300 px-1.5 py-0.5 rounded font-header shrink-0">
                         {item.cost} pts
                       </span>
                     </h4>
-                    <p className="text-[10px] text-slate-500 mt-0.5 line-clamp-1">{item.description}</p>
+                    <p className="coupon-stub-desc text-[10px] text-slate-500 mt-1">{item.description}</p>
                   </div>
                 </div>
 
                 <button
                   disabled={!activeMember || !canAfford}
                   onClick={() => handleBuy(item)}
-                  className={`btn-sketch py-1 px-2.5 text-[9px] font-bold font-header shrink-0 cursor-pointer ${
+                  className={`coupon-tear-btn btn-sketch py-1.5 px-2.5 text-[9px] font-bold font-header shrink-0 cursor-pointer ${
                     canAfford ? 'btn-green' : 'bg-slate-100 text-slate-400 border-slate-300 opacity-60 shadow-none cursor-not-allowed'
                   }`}
                 >
