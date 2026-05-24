@@ -42,19 +42,18 @@ ChoreWheel is a real-time, gamified web application that helps roommates and hou
 | Field | Details |
 |-------|---------|
 | **Team Name** | ChoreWheel Team |
-| **Project Lead** | [Your Full Name] |
+| **Project Lead** | An Nguyen |
 | **GitHub Username** | [@Annguyen0410](https://github.com/Annguyen0410) |
-| **Email** | [your.email@example.com] |
-| **Country / Region** | [Your Country] |
-| **Team Size** | [1–4 members] |
+| **Email** | nguyenan04102004@gmail.com |
+| **Country / Region** | United State of America - California |
+| **Team Size** | [1 members] |
 
 ### Team Members
 
 | Name | Role | Responsibilities | Contact |
 |------|------|------------------|---------|
-| [Member 1 Full Name] | Project Lead / Full-Stack Developer | Architecture, React frontend, Firebase integration, UI/UX design | [email] |
-| [Member 2 Full Name] | [Role — e.g., Frontend Developer] | [Responsibilities] | [email] |
-| [Member 3 Full Name] | [Role — e.g., Documentation / QA] | [Responsibilities] | [email] |
+| [An Nguyen] | Project Lead / Full-Stack Developer | Architecture, React frontend, Firebase integration, UI/UX design | [nguyenan04102004@gmail.com] |
+
 
 > **Note to submitter:** Replace all bracketed placeholders above with your actual team details before final submission.
 

@@ -168,6 +168,9 @@ h1, h2, h3, h4 {
   position: relative;
   transition: all 0.2s ease;
   overflow: visible;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .glass-card:hover {
@@ -208,7 +211,10 @@ h1, h2, h3, h4 {
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
-  height: auto; /* let cards size naturally to prevent vertical clipping */
+  height: auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .relative {
@@ -436,7 +442,12 @@ input:checked + .slider:before {
 .quick-start-banner {
   background: linear-gradient(90deg, #eef2ff 0%, #eff6ff 100%);
   border-bottom: 2px solid #c7d2fe;
-  padding: 1rem 1.5rem;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.quick-start-banner-inner {
+  width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -654,12 +665,12 @@ input:checked + .slider:before {
 /* Taped Stats Scrap Notes */
 .stats-banner-row {
   display: flex;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
   justify-content: center;
-  margin: 0.5rem auto 1.5rem auto;
-  max-width: 1400px;
+  align-items: stretch;
+  margin: 0 auto clamp(1rem, 2.5vw, 1.5rem);
   width: 100%;
-  padding: 0 2rem;
 }
 
 .stats-scrap-note {

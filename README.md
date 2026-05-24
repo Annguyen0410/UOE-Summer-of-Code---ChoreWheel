@@ -1,16 +1,16 @@
-# ChoreWheel — The Gamified Chore Rotation Sketchbook
+# ChoreWheel â€” The Gamified Chore Rotation Sketchbook
 
 **UOE Summer of Code 2026 Submission**
 
 > Spin fairly. Trade smart. Earn rewards. Keep the household in harmony.
 
-ChoreWheel is a real-time, gamified web application for roommates and households. It replaces arguments over chores with a fair spin wheel, a points economy, peer-to-peer trading, and a reward store — all wrapped in a distinctive sketchbook aesthetic.
+ChoreWheel is a real-time, gamified web application for roommates and households. It replaces arguments over chores with a fair spin wheel, a points economy, peer-to-peer trading, and a reward store â€” all wrapped in a distinctive sketchbook aesthetic.
 
 ---
 
 ## Live Demo
 
-**[Demo URL — deploy and update this link](https://your-deployed-url.example.com)**
+**[Demo URL](https://uoe-summer-of-codechorewheel.netlify.app)**
 
 Default sample room code: `HOMEY9`
 
@@ -18,15 +18,15 @@ Default sample room code: `HOMEY9`
 
 ## Features
 
-- **Spin Wheel** — Fair-weighted random chore assignment with animation and sound
-- **Points & Streaks** — Earn rewards for completing chores; streak multipliers for consistency
-- **Leaderboard** — Transparent household contribution rankings
-- **Chore Trading** — Swap assignments when schedules conflict
-- **Privilege Store** — Redeem points for custom household rewards
-- **Multi-Room** — Create/join rooms with shareable codes
-- **Real-Time Sync** — Optional Firebase Realtime Database integration
-- **PWA** — Installable, works offline via localStorage
-- **Onboarding** — 5-step tutorial for first-time users
+- **Spin Wheel** â€” Fair-weighted random chore assignment with animation and sound
+- **Points & Streaks** â€” Earn rewards for completing chores; streak multipliers for consistency
+- **Leaderboard** â€” Transparent household contribution rankings
+- **Chore Trading** â€” Swap assignments when schedules conflict
+- **Privilege Store** â€” Redeem points for custom household rewards
+- **Multi-Room** â€” Create/join rooms with shareable codes
+- **Real-Time Sync** â€” Optional Firebase Realtime Database integration
+- **PWA** â€” Installable, works offline via localStorage
+- **Onboarding** â€” 5-step tutorial for first-time users
 
 ---
 
@@ -111,7 +111,7 @@ src/
 
 ## Hackathon Theme
 
-**Startup & Productivity Solutions** — ChoreWheel improves household workflows, collaboration, and operations through gamification and fair assignment mechanics.
+**Startup & Productivity Solutions** â€” ChoreWheel improves household workflows, collaboration, and operations through gamification and fair assignment mechanics.
 
 ---
 
@@ -119,7 +119,7 @@ src/
 
 | Name | Role |
 |------|------|
-| [Your Name] | Project Lead / Developer |
+| An Nguyen | Project Lead / Developer |
 
 GitHub: [@Annguyen0410](https://github.com/Annguyen0410)
 
@@ -127,8 +127,8 @@ GitHub: [@Annguyen0410](https://github.com/Annguyen0410)
 
 ## License
 
-[Specify license]
+[Mit Lincese]
 
 ---
 
-**UOE Summer of Code 2026** — *Innovate. Build. Collaborate.*
+**UOE Summer of Code 2026** â€” *Innovate. Build. Collaborate.*

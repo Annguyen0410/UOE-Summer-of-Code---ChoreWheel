@@ -398,10 +398,11 @@ const Dashboard: React.FC = () => {
     : null;
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="app-page">
       {/* App Header Bar */}
-      <header className="app-header flex justify-between items-center">
-        <div className="flex items-center gap-4">
+      <header className="app-header">
+        <div className="app-shell app-header-inner">
+        <div className="app-header-start">
           <div className="brand-section">
             <h1 className="flex items-center gap-2 font-header font-extrabold tracking-tight">
               <RefreshCw size={22} className="text-indigo-600 animate-spin-slow" />
@@ -437,7 +438,7 @@ const Dashboard: React.FC = () => {
           )}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="app-header-end">
           {/* Active Session Simulator Switcher */}
           {members.length > 0 && (
             <div className="flex items-center gap-2">
@@ -502,21 +503,24 @@ const Dashboard: React.FC = () => {
             <Settings size={16} />
           </button>
         </div>
+        </div>
       </header>
 
       {/* PWA Install Banner */}
       {showInstallBtn && (
-        <div className="pwa-install-banner bg-indigo-50 border-b border-indigo-200 px-6 py-2 flex justify-between items-center text-xs">
-          <div className="flex items-center gap-2 text-indigo-900 font-semibold">
-            <Download size={14} className="animate-bounce text-indigo-700" />
-            <span>Install ChoreWheel to your desktop or home screen for offline access!</span>
+        <div className="pwa-install-banner">
+          <div className="app-shell pwa-install-banner-inner">
+            <div className="flex items-center gap-2 text-indigo-900 font-semibold">
+              <Download size={14} className="animate-bounce text-indigo-700" />
+              <span>Install ChoreWheel to your desktop or home screen for offline access!</span>
+            </div>
+            <button
+              onClick={handleInstallClick}
+              className="bg-indigo-900 hover:bg-indigo-950 text-white font-bold font-header text-[10px] px-3 py-1 rounded transition-colors cursor-pointer"
+            >
+              INSTALL APP
+            </button>
           </div>
-          <button
-            onClick={handleInstallClick}
-            className="bg-indigo-900 hover:bg-indigo-950 text-white font-bold font-header text-[10px] px-3 py-1 rounded transition-colors cursor-pointer"
-          >
-            INSTALL APP
-          </button>
         </div>
       )}
 
@@ -532,81 +536,81 @@ const Dashboard: React.FC = () => {
       {/* Spiral Bindings Coil divider loop down page */}
       <div className="spiral-coil-divider"></div>
 
-      {/* Taped Stats Scrap Banner Row */}
-      {currentRoom && (
-        <div className="stats-banner-row flex justify-center gap-6 flex-wrap mt-4 px-8">
-          {/* Note 1: Total Points */}
-          <div className="stats-scrap-note" style={{ transform: 'rotate(-1.5deg)' }}>
-            <span className="text-[10px] font-bold font-header text-slate-400 uppercase tracking-wider">House Tidy Score</span>
-            <div className="flex items-center gap-1 mt-1">
-              <Sparkles size={11} className="text-amber-500" />
-              <span className="text-sm font-header font-bold text-slate-800">{totalPoints} pts</span>
-            </div>
-          </div>
+      <div className="app-main">
+        <div className="app-shell">
+          {/* Taped Stats Scrap Banner Row */}
+          {currentRoom && (
+            <div className="stats-banner-row">
+              <div className="stats-scrap-note" style={{ transform: 'rotate(-1.5deg)' }}>
+                <span className="text-[10px] font-bold font-header text-slate-400 uppercase tracking-wider">House Tidy Score</span>
+                <div className="flex items-center gap-1 mt-1">
+                  <Sparkles size={11} className="text-amber-500" />
+                  <span className="text-sm font-header font-bold text-slate-800">{totalPoints} pts</span>
+                </div>
+              </div>
 
-          {/* Note 2: House MVP */}
-          {houseMvp && (
-            <div className="stats-scrap-note" style={{ transform: 'rotate(1deg)' }}>
-              <span className="text-[10px] font-bold font-header text-slate-400 uppercase tracking-wider">House MVP</span>
-              <div className="flex items-center gap-1 mt-1" style={{ color: houseMvp.color }}>
-                <Award size={11} />
-                <span className="text-sm font-header font-bold truncate max-w-[100px]">({houseMvp.avatar}) {houseMvp.name}</span>
+              {houseMvp && (
+                <div className="stats-scrap-note" style={{ transform: 'rotate(1deg)' }}>
+                  <span className="text-[10px] font-bold font-header text-slate-400 uppercase tracking-wider">House MVP</span>
+                  <div className="flex items-center gap-1 mt-1" style={{ color: houseMvp.color }}>
+                    <Award size={11} />
+                    <span className="text-sm font-header font-bold truncate max-w-[100px]">({houseMvp.avatar}) {houseMvp.name}</span>
+                  </div>
+                </div>
+              )}
+
+              <div className="stats-scrap-note" style={{ transform: 'rotate(-0.5deg)' }}>
+                <span className="text-[10px] font-bold font-header text-slate-400 uppercase tracking-wider">Chore Backlog</span>
+                <div className="flex items-center gap-1 mt-1">
+                  <Clipboard size={11} className="text-indigo-500 animate-pulse" />
+                  <span className="text-sm font-header font-bold text-slate-800">{pendingChoresCount} Tasks</span>
+                </div>
               </div>
             </div>
           )}
 
-          {/* Note 3: Pending Chores */}
-          <div className="stats-scrap-note" style={{ transform: 'rotate(-0.5deg)' }}>
-            <span className="text-[10px] font-bold font-header text-slate-400 uppercase tracking-wider">Chore Backlog</span>
-            <div className="flex items-center gap-1 mt-1">
-              <Clipboard size={11} className="text-indigo-500 animate-pulse" />
-              <span className="text-sm font-header font-bold text-slate-800">{pendingChoresCount} Tasks</span>
+          {/* Main Dashboard Columns */}
+          <main className="dashboard-grid">
+            <div className="dashboard-column dashboard-column--primary">
+              <ChoreWheel 
+                selectedChore={selectedChore} 
+                onAssignmentComplete={() => setSelectedChore(null)}
+              />
+              <ChoreList 
+                onSelectChore={handleSelectChore}
+                selectedChoreId={selectedChore ? selectedChore.id : null}
+              />
             </div>
-          </div>
-        </div>
-      )}
 
-      {/* Main Dashboard Columns */}
-      <main className="dashboard-grid">
-        {/* Left Column: Spinner & Chore Catalog */}
-        <div className="flex flex-col gap-6">
-          <ChoreWheel 
-            selectedChore={selectedChore} 
-            onAssignmentComplete={() => setSelectedChore(null)}
-          />
-          <ChoreList 
-            onSelectChore={handleSelectChore}
-            selectedChoreId={selectedChore ? selectedChore.id : null}
-          />
-        </div>
+            <div className="dashboard-column dashboard-column--center">
+              <Leaderboard />
+              <TradeModal />
+              <GuidebookBox onOpenManual={() => setIsManualOpen(true)} />
+            </div>
 
-        {/* Middle Column: Leaderboard & Trades Center */}
-        <div className="flex flex-col gap-6">
-          <Leaderboard />
-          <TradeModal />
-          <GuidebookBox onOpenManual={() => setIsManualOpen(true)} />
+            <div className="dashboard-column dashboard-column--side">
+              <PrivilegeStore />
+              <HistoryLogPanel />
+              <NotificationFeed />
+            </div>
+          </main>
         </div>
-
-        {/* Right Column: Privilege Store & Activity logs */}
-        <div className="flex flex-col gap-6">
-          <PrivilegeStore />
-          <HistoryLogPanel />
-          <NotificationFeed />
-        </div>
-      </main>
+      </div>
 
       {/* Info notice footer */}
-      <footer className="py-4 border-t border-slate-300 text-center text-[10px] text-slate-500 flex flex-col justify-center items-center gap-2 bg-white">
-        <button 
-          onClick={() => setIsManualOpen(true)}
-          className="btn-sketch btn-blue py-1.5 px-4 text-xs rounded-lg flex items-center gap-1.5 shadow transition-all hover:scale-105 active:scale-95 cursor-pointer"
-          title="Open Room Guidebook & User Manual"
-        >
-          <Info size={13} />
-          <span>📖 Open Room Guidebook & User Manual</span>
-        </button>
-        <div className="flex items-center gap-1 mt-1 text-[9px] text-slate-400 font-sans">
-          <span>UOE Summer of Code 2026 Innovation MVP. Try opening this app in two side-by-side tabs to experience real-time local sync!</span>
+      <footer className="app-footer">
+        <div className="app-shell app-footer-inner">
+          <button 
+            onClick={() => setIsManualOpen(true)}
+            className="btn-sketch btn-blue py-1.5 px-4 text-xs rounded-lg flex items-center gap-1.5 shadow transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            title="Open Room Guidebook & User Manual"
+          >
+            <Info size={13} />
+            <span>📖 Open Room Guidebook & User Manual</span>
+          </button>
+          <p className="app-footer-note">
+            UOE Summer of Code 2026 Innovation MVP. Try opening this app in two side-by-side tabs to experience real-time local sync!
+          </p>
         </div>
       </footer>
 

@@ -17,8 +17,8 @@ export const QuickStartGuide: React.FC<QuickStartGuideProps> = ({ isVisible, onD
   ];
 
   return (
-    <div className="quick-start-banner bg-gradient-to-r from-indigo-50 to-blue-50 border-b-2 border-indigo-200 px-6 py-4">
-      <div className="max-w-7xl mx-auto">
+    <div className="quick-start-banner">
+      <div className="app-shell quick-start-banner-inner">
         <div className="flex justify-between items-start mb-3">
           <div className="flex items-center gap-2">
             <Lightbulb size={18} className="text-indigo-600 flex-shrink-0" />
@@ -28,6 +28,7 @@ export const QuickStartGuide: React.FC<QuickStartGuideProps> = ({ isVisible, onD
             onClick={onDismiss}
             className="text-indigo-600 hover:text-indigo-800 transition-colors"
             title="Dismiss"
+            type="button"
           >
             <X size={16} />
           </button>
