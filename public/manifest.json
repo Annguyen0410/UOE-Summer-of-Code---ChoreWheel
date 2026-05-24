@@ -1,0 +1,30 @@
+{
+  "name": "ChoreWheel – The Gamified Chore Spinner",
+  "short_name": "ChoreWheel",
+  "description": "Gamified chore rotation wheel with points and trading for roommates.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0b0f19",
+  "theme_color": "#0b0f19",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Chore Spinner",
+      "url": "/?tab=spinner",
+      "description": "Spin the wheel to assign chores"
+    },
+    {
+      "name": "Leaderboard",
+      "url": "/?tab=leaderboard",
+      "description": "See weekly chore standings"
+    }
+  ]
+}
