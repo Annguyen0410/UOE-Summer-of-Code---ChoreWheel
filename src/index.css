@@ -45,6 +45,9 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: clip;
 }
 
 /* Scrollbars - sketched & highly visible for notebook containers */
@@ -670,7 +673,7 @@ input:checked + .slider:before {
   justify-content: center;
   align-items: stretch;
   margin: 0 auto clamp(1rem, 2.5vw, 1.5rem);
-  width: fit-content;
+  width: min(100%, var(--app-max-width, 1400px));
   max-width: 100%;
 }
 

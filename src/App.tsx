@@ -570,6 +570,7 @@ const Dashboard: React.FC = () => {
           )}
 
           {/* Main Dashboard Columns */}
+          <div className="dashboard-stage">
           <main className="dashboard-grid">
             <div className="dashboard-column dashboard-column--primary">
               <ChoreWheel 
@@ -594,6 +595,7 @@ const Dashboard: React.FC = () => {
               <NotificationFeed />
             </div>
           </main>
+          </div>
         </div>
       </div>
 
