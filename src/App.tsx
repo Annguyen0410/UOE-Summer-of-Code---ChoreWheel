@@ -537,7 +537,7 @@ const Dashboard: React.FC = () => {
       <div className="spiral-coil-divider"></div>
 
       <div className="app-main">
-        <div className="app-content-stage">
+        <div className="app-dashboard">
           {/* Taped Stats Scrap Banner Row */}
           {currentRoom && (
             <div className="stats-banner-row">
@@ -570,7 +570,6 @@ const Dashboard: React.FC = () => {
           )}
 
           {/* Main Dashboard Columns */}
-          <div className="dashboard-stage">
           <main className="dashboard-grid">
             <div className="dashboard-column dashboard-column--primary">
               <ChoreWheel 
@@ -595,7 +594,6 @@ const Dashboard: React.FC = () => {
               <NotificationFeed />
             </div>
           </main>
-          </div>
         </div>
       </div>
 

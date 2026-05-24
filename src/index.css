@@ -28,12 +28,18 @@
   padding: 0;
 }
 
+html {
+  width: 100%;
+  overflow-x: clip;
+}
+
 body {
   background-color: var(--bg-desk);
   color: var(--ink-graphite);
   font-family: var(--font-sans);
   min-height: 100vh;
-  overflow-x: hidden;
+  width: 100%;
+  overflow-x: clip;
   padding: 0;
   background-image: 
     radial-gradient(circle at 10% 20%, rgba(0, 0, 0, 0.02) 0%, transparent 40%),
@@ -46,7 +52,6 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 100vw;
   overflow-x: clip;
 }
 
@@ -672,8 +677,8 @@ input:checked + .slider:before {
   gap: clamp(0.75rem, 2vw, 1.5rem);
   justify-content: center;
   align-items: stretch;
-  margin: 0 auto clamp(1rem, 2.5vw, 1.5rem);
-  width: min(100%, var(--app-max-width, 1400px));
+  margin: 0 0 clamp(1rem, 2.5vw, 1.5rem);
+  width: 100%;
   max-width: 100%;
 }
 
