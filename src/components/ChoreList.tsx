@@ -219,13 +219,22 @@ export const ChoreList: React.FC<ChoreListProps> = ({ onSelectChore, selectedCho
               return (
                 <div 
                   key={chore.id} 
-                  className={`chore-card flex justify-between items-center transition-all ${
+                  className={`chore-card flex justify-between items-center transition-all cursor-pointer ${
                     isSelected ? 'selected-chore-outline' : ''
                   } border-cat-${chore.category.toLowerCase()}`}
                   style={{ borderLeftWidth: '3.5px' }}
+                  onClick={() => onSelectChore(chore)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      onSelectChore(chore);
+                    }
+                  }}
                 >
-                  <div className="chore-card-left flex-1" onClick={() => onSelectChore(chore)}>
-                    <div className="flex items-center gap-2 mb-1.5 cursor-pointer">
+                  <div className="chore-card-left flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1.5">
                       <span className="chore-card-category" style={{
                         background: 
                           chore.category === 'Kitchen' ? 'var(--hl-green)' :
@@ -250,7 +259,7 @@ export const ChoreList: React.FC<ChoreListProps> = ({ onSelectChore, selectedCho
                       </span>
                     </div>
 
-                    <h4 className="chore-card-name font-header text-[13px] cursor-pointer text-slate-800">{chore.name}</h4>
+                    <h4 className="chore-card-name font-header text-[13px] text-slate-800">{chore.name}</h4>
                     {chore.description && (
                       <p className="chore-card-desc text-[10px] text-slate-500 mt-0.5 line-clamp-1">{chore.description}</p>
                     )}
@@ -280,7 +289,10 @@ export const ChoreList: React.FC<ChoreListProps> = ({ onSelectChore, selectedCho
                   <div className="chore-card-right flex items-center gap-1.5 ml-2 shrink-0">
                     {/* Load into pencil spinner */}
                     <button
-                      onClick={() => onSelectChore(chore)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onSelectChore(chore);
+                      }}
                       title="Load into pencil spinner"
                       className={`p-1.5 rounded bg-white border border-slate-400 hover:bg-slate-50 text-slate-700 transition-colors flex items-center justify-center ${
                         isSelected ? 'bg-slate-150 border-slate-600' : ''
@@ -290,8 +302,9 @@ export const ChoreList: React.FC<ChoreListProps> = ({ onSelectChore, selectedCho
                     </button>
 
                     {/* Quick penciler dropdown */}
-                    <div className="assignee-dropdown-container">
+                    <div className="assignee-dropdown-container" onClick={(e) => e.stopPropagation()}>
                       <button 
+                        type="button"
                         className="p-1.5 rounded bg-white border border-slate-400 hover:bg-slate-50 text-slate-700 transition-colors flex items-center"
                         title="Pencil roommate"
                       >
@@ -322,7 +335,11 @@ export const ChoreList: React.FC<ChoreListProps> = ({ onSelectChore, selectedCho
                     {/* Quick complete scribble checkbox */}
                     {chore.assignedTo && (
                       <button
-                        onClick={() => completeChore(chore.id)}
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          completeChore(chore.id);
+                        }}
                         title="Complete Task"
                         className="p-1.5 rounded bg-white border border-slate-400 hover:bg-slate-50 text-emerald-700 transition-all active:scale-90"
                       >
@@ -332,7 +349,11 @@ export const ChoreList: React.FC<ChoreListProps> = ({ onSelectChore, selectedCho
 
                     {/* Quick delete pen */}
                     <button
-                      onClick={() => deleteChore(chore.id)}
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        deleteChore(chore.id);
+                      }}
                       title="Erase Chore"
                       className="p-1.5 rounded bg-white border border-slate-400 hover:bg-slate-50 text-rose-700 transition-all chore-delete-btn"
                     >

@@ -5,6 +5,11 @@
   background: var(--bg-paper);
   position: relative;
   box-shadow: 0 4px 0px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
 }
 
 /* Notebook Binder Coils down page top */
@@ -139,13 +144,17 @@
 }
 
 /* Crayon Sketch Canvas Spinner */
+.chore-wheel-card {
+  overflow: visible;
+}
+
 .spinner-display-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  flex: 1;
+  justify-content: flex-start;
   width: 100%;
+  gap: 0.75rem;
 }
 
 .active-chore-display {
@@ -196,13 +205,65 @@
 
 .canvas-wrapper {
   position: relative;
-  margin: 0.25rem 0 1rem 0;
+  margin: 0.25rem 0 0.5rem 0;
   filter: drop-shadow(4px 6px 0px rgba(0,0,0,0.07));
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .chore-canvas-wheel {
   display: block;
   max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.chore-canvas-wheel.can-spin {
+  cursor: pointer;
+}
+
+.chore-canvas-wheel.is-spinning {
+  pointer-events: none;
+}
+
+.wheel-controls {
+  width: 100%;
+}
+
+.wheel-probability-table {
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.wheel-probability-table th,
+.wheel-probability-table td {
+  vertical-align: middle;
+}
+
+.wheel-member-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.wheel-member-avatar {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.fair-weighting-row {
+  width: 100%;
 }
 
 .winner-announcement-card {
